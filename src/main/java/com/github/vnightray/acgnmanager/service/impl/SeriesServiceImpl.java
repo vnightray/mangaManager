@@ -1,0 +1,20 @@
+package com.github.vnightray.acgnmanager.service.impl;
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.github.vnightray.acgnmanager.entity.comic.Series;
+import com.github.vnightray.acgnmanager.mapper.SeriesMapper;
+import com.github.vnightray.acgnmanager.service.ISeriesService;
+import org.springframework.stereotype.Service;
+
+/**
+ * <p>
+ * series information 服务实现类
+ * </p>
+ *
+ * @author vnightray
+ * @since 2023-02-22
+ */
+@Service
+public class SeriesServiceImpl extends ServiceImpl<SeriesMapper, Series> implements ISeriesService {
+
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.vnightray.acgnmanager.mapper.SeriesMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.github.vnightray.acgnmanager.entity.comic.Series">
+        <id column="SERIES_ID" property="seriesId" />
+        <result column="SERIES_NAME" property="seriesName" />
+        <result column="LIBRARY_ID" property="libraryId" />
+        <result column="TAGS" property="tags" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="MODIFIED_TIME" property="modifiedTime" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.vnightray.acgnmanager.mapper.BookMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.github.vnightray.acgnmanager.entity.comic.Book">
+        <id column="BOOK_ID" property="bookId" />
+        <result column="GALLERY_ID" property="galleryId" />
+        <result column="SERIES_ID" property="seriesId" />
+        <result column="LIBRARY_ID" property="libraryId" />
+        <result column="OWNER_ID" property="ownerId" />
+        <result column="BOOK_NAME" property="bookName" />
+        <result column="BOOK_PROFILE" property="bookProfile" />
+        <result column="BOOK_HASH" property="bookHash" />
+        <result column="TAGS" property="tags" />
+        <result column="LOCATION" property="location" />
+        <result column="FILE_SIZE" property="fileSize" />
+        <result column="PAGE_COUNT" property="pageCount" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="MODIFIED_TIME" property="modifiedTime" />
+        <result column="IS_PRIVATE" property="isPrivate" />
+        <result column="IS_DELETED" property="isDeleted" />
+    </resultMap>
+
+</mapper>
