@@ -8,9 +8,11 @@ spring:
 #    password:
 #    url: jdbc:sqlite:D:\cache\acgnmanager\books.db
 #    driver-class-name: org.sqlite.JDBC
+    # mysql
     username: root
     password: Mysql11..
     url: jdbc:mysql://localhost:3306/acgnmanager?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       initial-size: 8
@@ -20,3 +22,46 @@ spring:
       time-between-eviction-runs-millis: 60000
       validation-query: select 1 from library
       filters: stat,slf4j,config
+  jackson:
+    data-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    servlet:
+      multipart:
+        max-file-size: 100MB
+        msx-request-size: 100MB
+        enabled: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    timeout: 1000
+    database: 0
+    pool:
+      max-active: 10
+      max-idle: 8
+      min-idle: 2
+      max-wait: 100
+  artemis:
+    mode: embedded
+    broker-url: tcp://localhost:18515
+    embedded:
+      enabled: true
+      persistent: true
+      data-directory: ${user.home}/.acgnManager/artemis
+    send-timeout: 10000 # 发送超时时间
+    pool:
+      enabled: false # 是否创建 JmsPoolConnectionFactory 连接池
+      idle-timeout: 30s # 空闲连接超时时间
+      max-connections: 50 # 连接池中最大连接数
+      max-sessions-per-connection: 100 # 每个连接最大会话
+  jms:
+    listener:
+      # 默认开启多少个消费者
+      concurrency: 3
+      #设置消费者并行最大数量
+      max-concurrency: 5
+
+logging:
+  level:
+    com.github.vnightray.acgnmanager.mapper.*: info
+  path: logs/
