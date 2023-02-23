@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 /**
@@ -21,6 +22,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@ToString
 public class Comment implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -37,6 +39,14 @@ public class Comment implements Serializable {
     private LocalDateTime createTime;
 
     private LocalDateTime modifiedTime;
+
+    public Comment(){}
+    public Comment(Long commentId){
+        this.commentId = commentId;
+        createTime = LocalDateTime.now();
+        modifiedTime = LocalDateTime.now();
+    }
+
 
 
 }

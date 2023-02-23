@@ -55,6 +55,7 @@ spring:
       max-connections: 50 # 连接池中最大连接数
       max-sessions-per-connection: 100 # 每个连接最大会话
   jms:
+    pub-sub-domain: false
     listener:
       # 默认开启多少个消费者
       concurrency: 3
@@ -64,4 +65,5 @@ spring:
 logging:
   level:
     com.github.vnightray.acgnmanager.mapper.*: info
+    org.apache.activemq.audit: WARN
   path: logs/
