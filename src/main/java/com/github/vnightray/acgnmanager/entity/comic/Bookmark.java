@@ -21,7 +21,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class Bookmark implements Serializable {
+public class Bookmark extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -33,10 +33,5 @@ public class Bookmark implements Serializable {
     private Integer pageId;
 
     private Integer ownerId;
-
-    private LocalDateTime createTime;
-
-    private LocalDateTime modifiedTime;
-
 
 }

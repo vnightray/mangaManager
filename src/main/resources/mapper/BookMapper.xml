@@ -15,6 +15,7 @@
         <result column="TAGS" property="tags" />
         <result column="LOCATION" property="location" />
         <result column="FILE_SIZE" property="fileSize" />
+        <result column="EXTENSION" property="extension" />
         <result column="PAGE_COUNT" property="pageCount" />
         <result column="CREATE_TIME" property="createTime" />
         <result column="MODIFIED_TIME" property="modifiedTime" />

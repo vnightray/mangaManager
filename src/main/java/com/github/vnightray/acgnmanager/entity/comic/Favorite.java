@@ -22,7 +22,7 @@ public class Favorite implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "FAVORITE_ID", type = IdType.INPUT)
+    @TableId(value = "FAVORITE_ID", type = IdType.AUTO)
     private Integer favoriteId;
 
     private Long bookId;

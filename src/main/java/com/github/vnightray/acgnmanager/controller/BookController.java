@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
+import java.util.Random;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * <p>
@@ -38,34 +40,6 @@ public class BookController {
     @RequestMapping("/findBook")
     @ResponseBody
     public Book findBook(){
-        for (int i = 0; i < 25; i++) {
-            jmsTemplate.convertAndSend("test001", "wahahaha: " + i, message -> {
-                message.setStringProperty("queueName", "test001");
-                // 设置消息组，用于有序的消费消息
-                message.setStringProperty("JMSXGroupID","testGroup001");
-                // 用于表示消息消费完成后，关闭该消费组
-                message.setIntProperty("JMSXGroupSeq", -1);
-                // 用于重新启动消费者后清除一些缓存消息等操作的判断，
-                // 它只在一个客户端第一次连接的时候会发送true，后面都不会发送false
-                message.setBooleanProperty("JMSXGroupFirstForConsumer",true);
-                return message;
-            });
-        }
-
-        for (int i = 0; i < 25; i++) {
-            jmsTemplate.convertAndSend("test002", "wahahaha: " + i, message -> {
-                message.setStringProperty("queueName", "test002");
-                // 设置消息组，用于有序的消费消息
-                message.setStringProperty("JMSXGroupID","testGroup002");
-                // 用于表示消息消费完成后，关闭该消费组
-                message.setIntProperty("JMSXGroupSeq", -1);
-                // 用于重新启动消费者后清除一些缓存消息等操作的判断，
-                // 它只在一个客户端第一次连接的时候会发送true，后面都不会发送false
-                message.setBooleanProperty("JMSXGroupFirstForConsumer",true);
-                return message;
-            });
-        }
-
         return bookService.getById(1);
     }
 

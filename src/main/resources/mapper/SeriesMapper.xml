@@ -7,9 +7,12 @@
         <id column="SERIES_ID" property="seriesId" />
         <result column="SERIES_NAME" property="seriesName" />
         <result column="LIBRARY_ID" property="libraryId" />
+        <result column="SERIES_LOCATION" property="seriesLocation" />
         <result column="TAGS" property="tags" />
         <result column="CREATE_TIME" property="createTime" />
         <result column="MODIFIED_TIME" property="modifiedTime" />
+        <result column="IS_PRIVATE" property="isPrivate" />
+        <result column="IS_DELETED" property="isDeleted" />
     </resultMap>
 
 </mapper>

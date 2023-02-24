@@ -43,7 +43,7 @@ spring:
       max-wait: 100
   artemis:
     mode: embedded
-    broker-url: tcp://localhost:18515
+    broker-url: tcp://localhost:16666
     embedded:
       enabled: true
       persistent: true

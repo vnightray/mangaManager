@@ -21,7 +21,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class Library implements Serializable {
+public class Library extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,11 +30,8 @@ public class Library implements Serializable {
 
     private String sourceLocation;
 
-    private Integer isPrivate;
+    private Boolean isPrivate;
 
-    private LocalDateTime createTime;
-
-    private LocalDateTime modifiedTime;
-
+    private Boolean isDeleted = false;
 
 }
