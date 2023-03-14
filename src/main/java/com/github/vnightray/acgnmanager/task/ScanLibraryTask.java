@@ -68,18 +68,19 @@ public class ScanLibraryTask extends BaseTask{
             rootSeries.setCreateTime(LocalDateTime.now());
             rootSeries.setModifiedTime(LocalDateTime.now());
             jmsTemplate.convertAndSend("task",
-                    new ScanSeriesTask().setSeries(rootSeries),
-                    message -> {
-                        message.setStringProperty("queueName", "scanSeries");
-                        // 设置消息组，用于有序的消费消息
-                        message.setStringProperty("JMSXGroupID","scanSeriesGroup");
-                        // 用于表示消息消费完成后，关闭该消费组
-                        message.setIntProperty("JMSXGroupSeq", -1);
-                        // 用于重新启动消费者后清除一些缓存消息等操作的判断，
-                        // 它只在一个客户端第一次连接的时候会发送true，后面都不会发送false
-                        message.setBooleanProperty("JMSXGroupFirstForConsumer",true);
-                        return message;
-                    });
+                    new ScanSeriesTask().setSeries(rootSeries)
+//                    , message -> {
+//                        message.setStringProperty("queueName", "scanSeries");
+//                        // 设置消息组，用于有序的消费消息
+//                        message.setStringProperty("JMSXGroupID","scanSeriesGroup");
+//                        // 用于表示消息消费完成后，关闭该消费组
+//                        message.setIntProperty("JMSXGroupSeq", -1);
+//                        // 用于重新启动消费者后清除一些缓存消息等操作的判断，
+//                        // 它只在一个客户端第一次连接的时候会发送true，后面都不会发送false
+//                        message.setBooleanProperty("JMSXGroupFirstForConsumer",true);
+//                        return message;
+//                    }
+                    );
         }
         Arrays.stream(listFiles).filter(File::isDirectory).forEach(dir -> createSeriesTasks(library, dir, jmsTemplate));
     }

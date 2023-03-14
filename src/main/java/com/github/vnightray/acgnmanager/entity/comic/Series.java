@@ -36,6 +36,8 @@ public class Series extends BaseEntity {
 
     private String tags;
 
+    private Long thumbnailId;
+
     private Boolean isPrivate;
 
     private Boolean isDeleted = false;
