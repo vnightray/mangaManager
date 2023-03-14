@@ -130,4 +130,27 @@ public class EchoController {
         return "success";
     }
 
+    @RequestMapping("/test5")
+    public String test5() {
+        String libraryLocation = "D:\\cache\\delete\\delete";
+        Library library = new Library()
+                .setSourceLocation(libraryLocation).setIsPrivate(false);
+        library.setCreateTime(LocalDateTime.now());
+        library.setModifiedTime(LocalDateTime.now());
+        jmsTemplate.convertAndSend("task", new ScanLibraryTask().setLibrary(library)
+//                , message -> {
+//                    message.setStringProperty("queueName", "scanLibrary");
+//                    // 设置消息组，用于有序的消费消息
+//                    message.setStringProperty("JMSXGroupID","scanLibraryGroup");
+//                    // 用于表示消息消费完成后，关闭该消费组
+//                    message.setIntProperty("JMSXGroupSeq", -1);
+//                    // 用于重新启动消费者后清除一些缓存消息等操作的判断，
+//                    // 它只在一个客户端第一次连接的时候会发送true，后面都不会发送false
+//                    message.setBooleanProperty("JMSXGroupFirstForConsumer",true);
+//                    return message;
+//                }
+                );
+        return "success";
+    }
+
 }
